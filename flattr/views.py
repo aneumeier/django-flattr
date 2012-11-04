@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-__init__.py 
+views.py 
 
 """
 
-version_info = (0, 0, 14)
-__version__ = ".".join(map(str, version_info))
+# Create your views here.
 
 # vim: ts=4 et sw=4 sts=4
 

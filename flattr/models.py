@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-__init__.py 
+models.py 
 
 """
 
-version_info = (0, 0, 14)
-__version__ = ".".join(map(str, version_info))
+from django.db import models
+
+# Create your models here.
 
 # vim: ts=4 et sw=4 sts=4
 
