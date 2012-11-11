@@ -15,6 +15,17 @@ FLATTR_OAUTH2_TOKEN = "https://flattr.com/oauth/token"
 
 import oauth2
 
+class FlattrError(Exception):
+    """
+    Base class for Flattr errors
+    """
+    @property
+    def message(self):
+        """
+        Returns the first argument used to construct this error.
+        """
+        return self.args[0]
+
 class Ouath2API(object):
     token = None
     def __init__(self, token):
