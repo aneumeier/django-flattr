@@ -76,7 +76,69 @@ class Thing(object):
     """
 
     def __init__(self, *args, **kwargs):
-        
+        pass
+
+class Subscription(object):
+    """
+    The Subscription object.
+    See:: http://developers.flattr.net/api/resources/subscriptions/
+    """
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+
+class FlattrUser(object):
+    """
+    The User object.
+    See:: http://developers.flattr.net/api/resources/users/
+
+    type                string		                Object type, set to user.
+    resource	        string		                URL to the API resource
+    link	            string		                URL to user on Flattr.com website
+    username	        string		                Username on Flattr
+    url	                string		                URL set by the user
+    firstname	        string		
+    lastname	        string		
+    avatar	            string		                URL to a Flattr avatar, size: 48x48px
+    about	            string		                Short description about the user
+    city	            string		
+    country	            string		
+    email	            string	email, extendedread	
+    registered_at	    int	    extendedread	    Format is unixtime
+    """
+
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+
+class FlattrMiniUser(object):
+    """
+    The MiniUser object.
+    See:: http://developers.flattr.net/api/resources/users/
+    
+    type                string		                Object type, set to user.
+    resource	        string		                URL to the API resource
+    link	            string		                URL to user on Flattr.com website
+    username	        string		                Username on Flattr
+    """
+
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+class Activities(object):
+    """
+    The Activities object.
+    See:: http://developers.flattr.net/api/resources/activities/
+    """
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+
+
 
 # vim: ts=4 et sw=4 sts=4
 
