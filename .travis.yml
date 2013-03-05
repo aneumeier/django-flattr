@@ -9,4 +9,4 @@ env:
 install: 
   - setup.py install
 script:
-  - python test.py
+  - python test.py flattr
