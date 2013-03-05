@@ -7,7 +7,8 @@ __init__.py
 """
 
 import json
-import oauth2
+import oauth2 as oauth
+import time
 
 version_info = (0, 0, 14)
 __version__ = ".".join(map(str, version_info))
