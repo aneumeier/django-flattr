@@ -6,14 +6,17 @@ __init__.py
 
 """
 
+import json
+import oauth2
+
 version_info = (0, 0, 14)
 __version__ = ".".join(map(str, version_info))
+
+FLATTR_API = "https://api.flattr.com"
 
 FLATTR_API_ENDPOINT = "https://api.flattr.com/rest/v2"
 FLATTR_OAUTH2_AUTHORIZE = "https://flattr.com/oauth/authorize"
 FLATTR_OAUTH2_TOKEN = "https://flattr.com/oauth/token"
-
-import oauth2
 
 class FlattrError(Exception):
     """
@@ -27,12 +30,27 @@ class FlattrError(Exception):
         return self.args[0]
 
 class Ouath2API(object):
+    
     token = None
+    params = {
+        'oauth_version': "2.0",
+        'oauth_nonce': oauth.generate_nonce(),
+        'oauth_timestamp': int(time.time())
+    }
+        
     def __init__(self, token):
         self.token = token
 
-    def get(self):
-        pass
+    def get(self, url, params=None):
+        if not params:
+            params = self.params
+            
+        req = oauth.Request(
+            method="GET", 
+            url=url, 
+            parameters=params
+        )
+        return json.dumps(req)
 
 class Flattr(object):
     """
@@ -138,6 +156,18 @@ class Activities(object):
         pass
 
 
+class Categories(Ouath2API):
+    """
+    The Categories object.
+    See:: http://developers.flattr.net/api/resources/categories/
+    """
+    
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def list(self):
+        url = "%s/rest/v2/categories"%(FLATTR_API)
+        return self.get(url)
 
 
 # vim: ts=4 et sw=4 sts=4
