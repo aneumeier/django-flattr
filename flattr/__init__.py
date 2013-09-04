@@ -30,6 +30,24 @@ class FlattrError(Exception):
         """
         return self.args[0]
 
+class ResourceUnavailable(Exception):
+    """Exception representing a failed request to a resource"""
+
+    def __init__(self, msg, http_response):
+        Exception.__init__(self)
+        self._msg = msg
+        self._status = http_response.status
+
+    def __str__(self):
+        return "Resource unavailable: %s (HTTP status: %s)" % (self._msg, self._status)
+
+class Unauthorized(ResourceUnavailable):
+    pass
+
+class TokenError(Exception):
+    pass
+
+
 class Ouath2API(object):
     
     token = None
@@ -64,8 +82,8 @@ class Flattr(object):
     owner       hash                  Contains either a user object or a mini user object (default).
     created_at  string                Format is unixtime.
     """
-    def __init__(self):
-        return
+    def __init__(self, client, thing=None, owner=None, created=''):
+        self.client = client
 
 class Thing(object):
     """
